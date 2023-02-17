@@ -61,7 +61,7 @@ Utils.l = parseLocale
 Utils.w = wrapper
 
 // 5、返回Date实例
-const parseDatUtilse = (cfg) => {
+const parseDate = (cfg) => {
   const { date, utc } = cfg
   if (date === null) return new Date(NaN) // date为null时
   if (date === undefined) return new Date() // date为undefined时
@@ -391,7 +391,7 @@ dayjs.prototype = proto;
 })
 
 // 7、定义Dayjs的静态方法
-dayjs.extend = (plugin, option) => {
+dayjs.extend = (plugin, option) => { // 暂未分析
   if (!plugin.$i) { // install plugin only once
     plugin(option, Dayjs, dayjs)
     plugin.$i = true

@@ -391,10 +391,10 @@ dayjs.prototype = proto;
 })
 
 // 7、定义Dayjs的静态方法
-dayjs.extend = (plugin, option) => { // 暂未分析
+dayjs.extend = (plugin, option) => { // 显然插件是一个函数
   if (!plugin.$i) { // install plugin only once
-    plugin(option, Dayjs, dayjs)
-    plugin.$i = true
+    plugin(option, Dayjs, dayjs) // plugin => fn
+    plugin.$i = true // 此时增加$i属性
   }
   return dayjs
 }

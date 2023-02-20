@@ -16,8 +16,8 @@ const parseLocale = (preset, object, isLocal) => {
   if (!preset) return L // 默认返回'en'
   if (typeof preset === 'string') {
     const presetLower = preset.toLowerCase()
-    if (Ls[presetLower]) { // Ls.zh
-      l = presetLower // zh
+    if (Ls[presetLower]) { // Ls.[zh-cn]
+      l = presetLower // zh-cn
     }
     if (object) {
       Ls[presetLower] = object
@@ -25,7 +25,7 @@ const parseLocale = (preset, object, isLocal) => {
     }
     const presetSplit = preset.split('-')
     if (!l && presetSplit.length > 1) {
-      return parseLocale(presetSplit[0])
+      return parseLocale(presetSplit[0]) // parseLocale('zh')
     }
   } else {
     const { name } = preset
